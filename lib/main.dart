@@ -1,4 +1,9 @@
+import 'package:app_bar/status_page.dart';
 import 'package:flutter/material.dart';
+import './calls_page.dart';
+import './camera_page.dart';
+import './chats_page.dart';
+import './status_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,6 +19,12 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
+    Widget buildPage(String text) {
+      return Center(
+        child: Text("Hello World"),
+      );
+    }
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
@@ -88,7 +99,14 @@ class _MyAppState extends State<MyApp> {
               ],
             ),
           ),
-          body: Container(),
+          body: TabBarView(
+            children: [
+              CameraPage(),
+              ChatsPage(),
+              StatusPage(),
+              CallsPage(),
+            ],
+          ),
           floatingActionButton: FloatingActionButton(
             backgroundColor: Color.fromRGBO(37, 211, 102, 1),
             onPressed: () {},
